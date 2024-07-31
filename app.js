@@ -71,14 +71,10 @@ const sessionOptions = {
   },
 };
 
-app.get("/", (req, res) => {
-  res.send("welcome to the homepage.");
-});
-
 app.use(session(sessionOptions));
 app.use(flash());
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
