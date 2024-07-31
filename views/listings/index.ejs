@@ -1,0 +1,175 @@
+<% layout('/layouts/boilerplate') %>
+
+  <!-- <div class="offset-10"></div> -->
+  <!-- <h1>All Listings.</h1> -->
+  <!-- <form method="GET" action="/listings/new">
+    <button>Create New Listing</button>
+  </form> -->
+
+  <style>
+    #filters{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter{
+      text-align: center;
+      margin-top: 2rem;
+      margin-right: 2rem;
+      opacity: 0.8;
+    }
+
+    .filter:hover{
+      opacity: 1;
+      cursor: pointer;
+      color: brown;
+    }
+
+  .tax-info{
+    display: none;
+  }
+
+  .head{
+    display: flex;
+    text-align: center;
+    color: cadetblue;
+  }
+
+  .switch-toggle{
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding:1rem;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  </style>
+
+<!-- <div id="filters">
+  <div class="filter">
+      <i class="fa-solid fa-fire"></i>
+      <p>Trending</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-umbrella-beach"></i>
+      <p>Island</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-house"></i>
+      <p>Tree house</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-person-swimming"></i>
+      <p>pools</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-cow"></i>
+      <p>Farms</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-snowflake"></i>
+      <p>Snow</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-person-skating"></i>
+      <p>ski in/out</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-person-drowning"></i>
+      <p>creative space</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-city"></i>
+      <p>Cities</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-tower-observation"></i>
+      <p>Apartments</p>
+    </div>
+
+    
+    <div class="filter">
+      <i class="fa-solid fa-bed"></i>
+      <p>Rooms</p>
+    </div>
+
+    <div class="filter">
+      <i class="fa-solid fa-key"></i>
+      <p>new</p>
+    </div> -->
+
+    <div class="offset-4 mt-3 mb-2">
+      <h2><b>Welcome to WildPath</b></h2>
+    </div>
+
+    <!-- <div class="switch-toggle">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Display after total tax</label>
+      </div>
+    </div> -->
+   
+    
+<!-- </div> -->
+
+
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListing ){ %>
+      <a href="/listings/<%= listing._id %>" class="listing-links">
+    <div class="card listing-card">
+      <img
+        src="<%=listing.image.url %>"
+        class="card-img-top"
+        alt="Listing_image "
+        style="height: 20rem"
+      />
+      <div class="card-img-overlay">
+        
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.title %></b><br />
+          ₹<%= listing.price.toLocaleString("en-IN") %>/night 
+          <i class="tax-info"> +18 % GST</i><br />
+
+        </p>
+      </div>
+    </div>
+    <% }%>
+  </div>
+</a>
+
+  <!-- <ul>
+    <% for(let listing of allListing ){ %>
+    <li><a href="/listings/<%= listing._id%>"><%= listing.title%></a></li>
+    <% }%>
+  </ul> -->
+
+<script>
+  // let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+  // taxSwitch.addEventListener('click',()=>{
+  //   let taxInfo = document.getElementsByClassName("tax-info");
+  //   for(info of taxInfo){
+  //     if(info.style.display!= "inline"){
+  //       info.style.display = "inline";
+  //     }else{
+  //       info.style.display = "none";
+  //     }
+      
+  //   }
+    
+  // })
+</script>

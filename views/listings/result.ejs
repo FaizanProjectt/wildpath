@@ -1,0 +1,31 @@
+<% layout('/layouts/boilerplate') %>
+<div class="offset-3 mt-3">
+  <h1><b>🧾<u>Results for "<%= query %>"</u></b></h1>
+</div>
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for(let result of results ){ %>
+    <a href="/listings/<%= result._id %>" class="listing-links">
+  <div class="card listing-card">
+    <img
+      src="<%=result.image.url %>"
+      class="card-img-top"
+      alt="Listing_image "
+      style="height: 20rem"
+    />
+    <div class="card-img-overlay">
+      
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <b><%= result.title %></b><br />
+        ₹<%= result.price.toLocaleString("en-IN") %>/night 
+        <br />
+
+      </p>
+    </div>
+  </div>
+  <% }%>
+</div>
+</a>
