@@ -72,7 +72,7 @@ const sessionOptions = {
 };
 
 app.get("/", (req, res) => {
-  res.send("welcome to the homepage.");
+  res.render("home.ejs");
 });
 
 app.use(session(sessionOptions));
@@ -85,6 +85,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+  console.log("Current User:", req.user);
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
@@ -139,6 +140,8 @@ app.use((err, req, res, next) => {
   res.render("listings/error.ejs", { message });
   // res.status(status).send(message);
 });
+
+console.log(process.env.ATLASDB_URL);
 
 app.listen(8080, () => {
   console.log("port is listening on 8080");

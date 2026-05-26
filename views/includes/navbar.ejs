@@ -67,14 +67,14 @@
 
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Add new Listing | </a>
-        <% if(!currUser) { %>
+        <% if(!locals.currUser) { %>
         <div class="mt-2">👋Hello :- 👤 <b>Guest</b> |</div>
         <a class="nav-link" aria-current="/signup" href="/signup"
           >✍️<b>signup</b> |
         </a>
         <a class="nav-link" href="/login">🔐<b>Login</b></a>
-        <% } %> <% if(currUser){%>
-        <div class="mt-2">🙏Welcome:- 👤<b> <%= currUser.username %></b> |</div>
+        <% } %> <% if(locals.currUser){%>
+        <div class="mt-2">🙏Welcome:- 👤<b> <%= locals.currUser.username %></b> |</div>
         <a class="nav-link" href="/logout">⬅️<b>Logout</b></a>
 
         <% } %>
